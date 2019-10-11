@@ -1,7 +1,7 @@
 {
-  "name": "wx_egg_service",
+  "name": "ashop_service",
   "version": "1.0.0",
-  "description": "This is wetchart shop admin!",
+  "description": "This is wetchart shop service!",
   "private": true,
   "egg": {
     "declarations": true
