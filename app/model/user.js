@@ -20,7 +20,12 @@ module.exports = app => {
     const user = await this.create({ username })
 
     // 写入数据库
-    const userLogin = await app.model.UserLogin.create({npassword, username,salt})
+    const userLogin = await app.model.UserLogin.create({
+      npassword,
+      salt,
+      'uid': user.uid,
+      username
+    })
   }
   return user
 }
