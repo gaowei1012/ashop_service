@@ -88,7 +88,17 @@ module.exports = appInfo => {
     enable: true,
     appid: '78367',
     secret: '4ba609a5e26d28a23d3b94d40a7263fe72efa289',
-  };
+  }
+
+  // redis
+  config.redis = {
+    client: {
+      port: 6379,
+      host: '127.0.0.1',
+      password: 'gao129231wei',
+      db: 0
+    }
+  }
 
   return config;
 };

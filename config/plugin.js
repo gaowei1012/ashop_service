@@ -15,6 +15,13 @@ exports.jwt = {
   package: "egg-jwt"
 }
 
+exports.session = true
+
+exports.redis = {
+  enable: true,
+  package: 'egg-redis'
+}
+
 // exports.swaggerdoc = {
 //   enable: true,
 //   package: 'egg-swagger-doc'
