@@ -62,8 +62,9 @@ CREATE TABLE orders
 ALTER TABLE orders COMMENT = '商品详情表';
 
 -- ---------------------------
--- PC端 --
+-- PC 后端管理系统 --
 -- 建表 用户
+-- date: 2019-10-12
 -- ---------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`
@@ -81,3 +82,23 @@ CREATE TABLE `user`
 );
 ALTER TABLE user COMMENT = 'pc用户表';
 
+-- --------------------------
+-- 建表 table
+-- date: 2019-10-12
+-- --------------------------
+
+DROP TABLE IF EXISTS `tables`;
+CREATE TABLE `tables`
+(
+  `id`   INT AUTO_INCREMENT    COMMENT    '每个table的唯一标识',
+  `table_name`   VARCHAR(30)   NOT NULL   COMMENT  'table名称',
+  `icon`    VARCHAR(30)   NOT NULL    COMMENT   'table的icon图像',
+  CONSTRAINT PK_tables  PRIMARY KEY(`id`)
+);
+ALTER TABLE tables COMMENT = 'pc侧边栏table';
+
+
+-- ----------------------
+-- 建表 
+-- date: 2019-10-12
+-- ----------------------
