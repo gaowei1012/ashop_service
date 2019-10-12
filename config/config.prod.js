@@ -11,7 +11,7 @@ module.sequelize = {
 
   password: 'gao129231wei',
 
-  database: 'ashop',
+  database: 'nashop',
 
   pool: {
     max: 5,
