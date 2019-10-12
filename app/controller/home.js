@@ -3,14 +3,10 @@
 const Controller = require('egg').Controller
 
 class HomeController extends Controller {
-
   async index() {
-    this.ctx.body = 'wolo'
-  }
-
-  async create() {
     const { ctx } = this
-    ctx.body = await ctx.service.shop.all.create()
+
+    ctx.body = '我是测试接口'
   }
 }
 
