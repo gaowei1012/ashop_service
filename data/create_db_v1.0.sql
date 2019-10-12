@@ -7,25 +7,25 @@ set character_set_server      = utf8mb4;
 
 -- ---------------------
 -- 建表 
--- 用户表
+-- 用户表 小程序
 -- date: 2019-10-12 
 -- ---------------------
 
-DROP TABLE IF EXISTS users;
-CREATE TABLE users
+DROP TABLE IF EXISTS `wx_users`;
+CREATE TABLE `wx_users`
 (
-  uid    INT AUTO_INCREMENT   COMMENT   '用户(id)',
-  username    VARCHAR(30)   NOT NULL    COMMENT   '用户名',
-  avatar      VARCHAR(100)    COMMENT   '头像',
-  nickname    VARCHAR(30)   COMMENT   '用户昵称',
-  password    VARCHAR(100)    NOT  NULL   COMMENT   '用户密码',
-  createAt    DATETIME  DEFAULT   NOW()   COMMENT    '建表时间',
-  updateAt    DATETIME  DEFAULT   NOW()   COMMENT   '最后修改时间',
-  loginNum    INT  DEFAULT 0  NOT NULL  COMMENT   '登录次数',
-  lastLoginTime   DATETIME    COMMENT   '最后登录时间',
-  CONSTRAINT  PK_users  PRIMARY KEY(uid)
+  `uid`    INT AUTO_INCREMENT   COMMENT   '用户(id)',
+  `username`    VARCHAR(30)   NOT NULL    COMMENT   '用户名',
+  `avatar`      VARCHAR(100)    COMMENT   '头像',
+  `nickname`    VARCHAR(30)   COMMENT   '用户昵称',
+  `password`    VARCHAR(100)    NOT  NULL   COMMENT   '用户密码',
+  `create_at`    DATETIME  DEFAULT   NOW()   COMMENT    '建表时间',
+  `update_at`    DATETIME  DEFAULT   NOW()   COMMENT   '最后修改时间',
+  `login_num`    INT  DEFAULT 0  NOT NULL  COMMENT   '登录次数',
+  `last_login_time`   DATETIME    COMMENT   '最后登录时间',
+  CONSTRAINT  PK_wx_users  PRIMARY KEY(`uid`)
 );
-APPLY TABLE users COMMENT = '用户表';
+ALTER TABLE `wx_users` COMMENT = '微信小程序用户表';
 
 
 -- -------------------------
@@ -41,7 +41,7 @@ CREATE TABLE banners
   avatarURL   VARCHAR(100)  NOT NULL  COMMENT   '图像URL地址',
   CONSTRAINT  PK_banners  PRIMARY KEY(id)
 );
-APPLY TABLE banners COMMENT = '首页轮播';
+ALTER TABLE banners COMMENT = '首页轮播';
 
 
 -- ------------------------
@@ -59,9 +59,25 @@ CREATE TABLE orders
   oederDesc    VARCHAR(255)    NOT NULL  COMMENT   '商品描述信息',
   CONSTRAINT PK_orders  PRIMARY KEY(id)
 );
-APPLY TABLE orders COMMENT = '商品详情表';
+ALTER TABLE orders COMMENT = '商品详情表';
 
 -- ---------------------------
 -- PC端 --
--- 建表 
+-- 建表 用户
 -- ---------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`
+(
+  `uid`   INT   AUTO_INCREMENT    COMMENT   '用户标识uid',
+  `role`  CHAR(1) DEFAULT '0' NOT NULL    COMMENT   '标识用户权限位',
+  `username`    VARCHAR(30)   NOT NULL    COMMENT   '用户名',
+  `password`    VARCHAR(100)  NOT NULL    COMMENT   '用户密码',
+  `avatar`    VARCHAR(100)    NOT NULL    COMMENT   '用户头像',
+  `create_at`   DATETIME  DEFAULT   NOW()   COMMENT   '创建用户时间',
+  `update_at`   DATETIME  DEFAULT   NOW()   COMMENT   '用户更新时间',
+  `login_num`    INT  DEFAULT 0  NOT NULL  COMMENT   '登录次数',
+  `last_login_time`   DATETIME    COMMENT   '最后登录时间',
+  CONSTRAINT PK_user  PRIMARY KEY(`uid`)
+);
+ALTER TABLE user COMMENT = 'pc用户表';
+
