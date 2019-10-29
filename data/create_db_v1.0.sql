@@ -99,6 +99,31 @@ ALTER TABLE tables COMMENT = 'pc侧边栏table';
 
 
 -- ----------------------
--- 建表 
+-- 建表 描述信息
 -- date: 2019-10-12
 -- ----------------------
+
+DROP TABLE IF EXISTS `detail`;
+CREATE TABLE `detail`
+(
+  `id`    INT AUTO_INCREMENT    COMMENT    'detail_id',
+  `title`   VARCHAR(255)  NOT NULL COMMENT    'detail_title',
+  `acthor`    VARCHAR(30)   NOT NULL COMMENT    '作者姓名',
+  CONSTRAINT PK_detail PRIMARY KEY(`id`) 
+);
+ALTER TABLE detail COMMENT = '描述信息';
+
+
+-- -----------------
+-- 建表 广告栏
+-- date: 2019-10-29
+-- -----------------
+
+DROP TABLE IF EXISTS `ad`;
+CREATE TABLE `ad`
+(
+  `ad_id`   INT AUTO_INCREMENT    COMMENT   '广告id标识',
+  `ad_detail`   VARCHAR(255)    NOT NULL    COMMENT   'ad_detail',
+  CONSTRAINT    PK_ad   PRIMARY KEY(`ad_id`)
+);
+ALTER TABLE ad  COMMENT = '广告栏信息';
